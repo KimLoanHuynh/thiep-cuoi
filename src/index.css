@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@theme{
+  --color-xanh: #1f3a25;      /* xanh ngọc - nền chính */
+  --color-xanh-sau: #12302f;  /* xanh ngọc đậm */
+  --color-giay: #ede3cc;      /* giấy cũ */
+  --color-vang: #b3893f;      /* vàng đồng */
+  --color-son: #8f2e2b;       /* đỏ son */
+  --color-muc: #2a2a24;       /* mực */
+  --font-script: "Great Vibes", cursive;
+  --animate-blink: blink 1.8s ease-in-out infinite;
+  --animate-ring: ring 2s ease-out infinite;
+  --animate-rise: rise 1s ease-out 0.9s both;
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+  @keyframes ring { 0% { box-shadow: 0 0 0 0 rgb(230 201 138 / 0.7); } 100% { box-shadow: 0 0 0 14px rgb(230 201 138 / 0); } }
+  @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+  --font-serif: "Lora", Georgia, serif;
+  --font-hy: "Noto Serif SC", "Songti SC", "SimSun", serif;
+  --animate-bob: bob 3.2s ease-in-out infinite;
+  --animate-pop: pop 0.3s ease-out both;
+  @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+  @keyframes pop { from { opacity: 0; transform: scale(0.92) translateY(8px); } to { opacity: 1; transform: none; } }
+}
+  html { scroll-behavior: smooth; scrollbar-gutter: stable; }
+body { font-family: var(--font-serif); line-height: 1.75; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+:focus-visible { outline: 2px solid var(--color-vang); outline-offset: 2px; }
+@keyframes floatup {
+  0% { transform: translate3d(0, 10vh, 0) rotate(0deg); opacity: 0; }
+  10% { opacity: var(--peak, 0.8); }
+  90% { opacity: var(--peak, 0.8); }
+  100% { transform: translate3d(var(--drift, 0px), -110vh, 0) rotate(var(--spin, 0deg)); opacity: 0; }
+}
+@keyframes burst {
+  0% { transform: translate(-50%, -50%) scale(0.3) rotate(0deg); opacity: 0; }
+  15% { opacity: 1; }
+  100% { transform: translate(-50%, -50%) translate3d(var(--dx), var(--dy), 0) scale(1) rotate(var(--spin)); opacity: 0; }
+}
+  @keyframes zoomhy {
+    0% { transform: translate(-50%, -50%) scale(0.12); opacity: 0; }
+    30% { opacity: 0.9; }
+    100% { transform: translate(-50%, -50%) scale(2.4); opacity: 0; }
+  }
